@@ -1,0 +1,668 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		040D210E2B09765E0008EAEE /* ActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 040D210D2B09765E0008EAEE /* ActivityIndicatorView */; };
+		0416C6BF2B08C03A00D4CF4F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0416C6BE2B08C03A00D4CF4F /* Alamofire */; };
+		0416C6FB2B0907B900D4CF4F /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0416C6FA2B0907B900D4CF4F /* MessageModel.swift */; };
+		0416C6FE2B09080000D4CF4F /* MessageRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0416C6FD2B09080000D4CF4F /* MessageRowView.swift */; };
+		0416C7012B09089F00D4CF4F /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0416C7002B09089F00D4CF4F /* ChatViewModel.swift */; };
+		0416C7032B09295000D4CF4F /* LogFileSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0416C7022B09295000D4CF4F /* LogFileSelection.swift */; };
+		0416C7092B09619500D4CF4F /* iOSCustomSegmentedControlSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0416C7082B09619500D4CF4F /* iOSCustomSegmentedControlSwiftUI.swift */; };
+		046DD4B32B08195500446D2E /* LogthemisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046DD4B22B08195500446D2E /* LogthemisApp.swift */; };
+		046DD4B52B08195500446D2E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046DD4B42B08195500446D2E /* ContentView.swift */; };
+		046DD4B92B08195700446D2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 046DD4B82B08195700446D2E /* Assets.xcassets */; };
+		046DD4BC2B08195700446D2E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 046DD4BB2B08195700446D2E /* Preview Assets.xcassets */; };
+		046DD4C72B08195700446D2E /* LogthemisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046DD4C62B08195700446D2E /* LogthemisTests.swift */; };
+		046DD4D12B08195700446D2E /* LogthemisUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046DD4D02B08195700446D2E /* LogthemisUITests.swift */; };
+		046DD4D32B08195700446D2E /* LogthemisUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046DD4D22B08195700446D2E /* LogthemisUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		046DD4C32B08195700446D2E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 046DD4A72B08195500446D2E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 046DD4AE2B08195500446D2E;
+			remoteInfo = Logthemis;
+		};
+		046DD4CD2B08195700446D2E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 046DD4A72B08195500446D2E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 046DD4AE2B08195500446D2E;
+			remoteInfo = Logthemis;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0416C6FA2B0907B900D4CF4F /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
+		0416C6FD2B09080000D4CF4F /* MessageRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRowView.swift; sourceTree = "<group>"; };
+		0416C7002B09089F00D4CF4F /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		0416C7022B09295000D4CF4F /* LogFileSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogFileSelection.swift; sourceTree = "<group>"; };
+		0416C7082B09619500D4CF4F /* iOSCustomSegmentedControlSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSCustomSegmentedControlSwiftUI.swift; sourceTree = "<group>"; };
+		046DD4AF2B08195500446D2E /* Logthemis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Logthemis.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		046DD4B22B08195500446D2E /* LogthemisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogthemisApp.swift; sourceTree = "<group>"; };
+		046DD4B42B08195500446D2E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		046DD4B82B08195700446D2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		046DD4BB2B08195700446D2E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		046DD4BD2B08195700446D2E /* Logthemis.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Logthemis.entitlements; sourceTree = "<group>"; };
+		046DD4C22B08195700446D2E /* LogthemisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogthemisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		046DD4C62B08195700446D2E /* LogthemisTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogthemisTests.swift; sourceTree = "<group>"; };
+		046DD4CC2B08195700446D2E /* LogthemisUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogthemisUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		046DD4D02B08195700446D2E /* LogthemisUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogthemisUITests.swift; sourceTree = "<group>"; };
+		046DD4D22B08195700446D2E /* LogthemisUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogthemisUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		046DD4AC2B08195500446D2E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				040D210E2B09765E0008EAEE /* ActivityIndicatorView in Frameworks */,
+				0416C6BF2B08C03A00D4CF4F /* Alamofire in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		046DD4BF2B08195700446D2E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		046DD4C92B08195700446D2E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0416C6F92B0907A600D4CF4F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0416C6FA2B0907B900D4CF4F /* MessageModel.swift */,
+				0416C7022B09295000D4CF4F /* LogFileSelection.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0416C6FC2B0907EC00D4CF4F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				046DD4B42B08195500446D2E /* ContentView.swift */,
+				0416C6FD2B09080000D4CF4F /* MessageRowView.swift */,
+				0416C7082B09619500D4CF4F /* iOSCustomSegmentedControlSwiftUI.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0416C6FF2B09086C00D4CF4F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0416C7002B09089F00D4CF4F /* ChatViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		046DD4A62B08195500446D2E = {
+			isa = PBXGroup;
+			children = (
+				046DD4B12B08195500446D2E /* Logthemis */,
+				046DD4C52B08195700446D2E /* LogthemisTests */,
+				046DD4CF2B08195700446D2E /* LogthemisUITests */,
+				046DD4B02B08195500446D2E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		046DD4B02B08195500446D2E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				046DD4AF2B08195500446D2E /* Logthemis.app */,
+				046DD4C22B08195700446D2E /* LogthemisTests.xctest */,
+				046DD4CC2B08195700446D2E /* LogthemisUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		046DD4B12B08195500446D2E /* Logthemis */ = {
+			isa = PBXGroup;
+			children = (
+				0416C6F92B0907A600D4CF4F /* Model */,
+				0416C6FC2B0907EC00D4CF4F /* View */,
+				0416C6FF2B09086C00D4CF4F /* ViewModel */,
+				046DD4B22B08195500446D2E /* LogthemisApp.swift */,
+				046DD4B82B08195700446D2E /* Assets.xcassets */,
+				046DD4BD2B08195700446D2E /* Logthemis.entitlements */,
+				046DD4BA2B08195700446D2E /* Preview Content */,
+			);
+			path = Logthemis;
+			sourceTree = "<group>";
+		};
+		046DD4BA2B08195700446D2E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				046DD4BB2B08195700446D2E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		046DD4C52B08195700446D2E /* LogthemisTests */ = {
+			isa = PBXGroup;
+			children = (
+				046DD4C62B08195700446D2E /* LogthemisTests.swift */,
+			);
+			path = LogthemisTests;
+			sourceTree = "<group>";
+		};
+		046DD4CF2B08195700446D2E /* LogthemisUITests */ = {
+			isa = PBXGroup;
+			children = (
+				046DD4D02B08195700446D2E /* LogthemisUITests.swift */,
+				046DD4D22B08195700446D2E /* LogthemisUITestsLaunchTests.swift */,
+			);
+			path = LogthemisUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		046DD4AE2B08195500446D2E /* Logthemis */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 046DD4D62B08195700446D2E /* Build configuration list for PBXNativeTarget "Logthemis" */;
+			buildPhases = (
+				046DD4AB2B08195500446D2E /* Sources */,
+				046DD4AC2B08195500446D2E /* Frameworks */,
+				046DD4AD2B08195500446D2E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Logthemis;
+			packageProductDependencies = (
+				0416C6BE2B08C03A00D4CF4F /* Alamofire */,
+				040D210D2B09765E0008EAEE /* ActivityIndicatorView */,
+			);
+			productName = Logthemis;
+			productReference = 046DD4AF2B08195500446D2E /* Logthemis.app */;
+			productType = "com.apple.product-type.application";
+		};
+		046DD4C12B08195700446D2E /* LogthemisTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 046DD4D92B08195700446D2E /* Build configuration list for PBXNativeTarget "LogthemisTests" */;
+			buildPhases = (
+				046DD4BE2B08195700446D2E /* Sources */,
+				046DD4BF2B08195700446D2E /* Frameworks */,
+				046DD4C02B08195700446D2E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				046DD4C42B08195700446D2E /* PBXTargetDependency */,
+			);
+			name = LogthemisTests;
+			productName = LogthemisTests;
+			productReference = 046DD4C22B08195700446D2E /* LogthemisTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		046DD4CB2B08195700446D2E /* LogthemisUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 046DD4DC2B08195700446D2E /* Build configuration list for PBXNativeTarget "LogthemisUITests" */;
+			buildPhases = (
+				046DD4C82B08195700446D2E /* Sources */,
+				046DD4C92B08195700446D2E /* Frameworks */,
+				046DD4CA2B08195700446D2E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				046DD4CE2B08195700446D2E /* PBXTargetDependency */,
+			);
+			name = LogthemisUITests;
+			productName = LogthemisUITests;
+			productReference = 046DD4CC2B08195700446D2E /* LogthemisUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		046DD4A72B08195500446D2E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					046DD4AE2B08195500446D2E = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+					046DD4C12B08195700446D2E = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = 046DD4AE2B08195500446D2E;
+					};
+					046DD4CB2B08195700446D2E = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = 046DD4AE2B08195500446D2E;
+					};
+				};
+			};
+			buildConfigurationList = 046DD4AA2B08195500446D2E /* Build configuration list for PBXProject "Logthemis" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 046DD4A62B08195500446D2E;
+			packageReferences = (
+				0416C6BD2B08C03A00D4CF4F /* XCRemoteSwiftPackageReference "Alamofire" */,
+				040D210C2B09765E0008EAEE /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */,
+			);
+			productRefGroup = 046DD4B02B08195500446D2E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				046DD4AE2B08195500446D2E /* Logthemis */,
+				046DD4C12B08195700446D2E /* LogthemisTests */,
+				046DD4CB2B08195700446D2E /* LogthemisUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		046DD4AD2B08195500446D2E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				046DD4BC2B08195700446D2E /* Preview Assets.xcassets in Resources */,
+				046DD4B92B08195700446D2E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		046DD4C02B08195700446D2E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		046DD4CA2B08195700446D2E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		046DD4AB2B08195500446D2E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				046DD4B52B08195500446D2E /* ContentView.swift in Sources */,
+				0416C7032B09295000D4CF4F /* LogFileSelection.swift in Sources */,
+				0416C6FB2B0907B900D4CF4F /* MessageModel.swift in Sources */,
+				046DD4B32B08195500446D2E /* LogthemisApp.swift in Sources */,
+				0416C7092B09619500D4CF4F /* iOSCustomSegmentedControlSwiftUI.swift in Sources */,
+				0416C7012B09089F00D4CF4F /* ChatViewModel.swift in Sources */,
+				0416C6FE2B09080000D4CF4F /* MessageRowView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		046DD4BE2B08195700446D2E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				046DD4C72B08195700446D2E /* LogthemisTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		046DD4C82B08195700446D2E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				046DD4D12B08195700446D2E /* LogthemisUITests.swift in Sources */,
+				046DD4D32B08195700446D2E /* LogthemisUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		046DD4C42B08195700446D2E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 046DD4AE2B08195500446D2E /* Logthemis */;
+			targetProxy = 046DD4C32B08195700446D2E /* PBXContainerItemProxy */;
+		};
+		046DD4CE2B08195700446D2E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 046DD4AE2B08195500446D2E /* Logthemis */;
+			targetProxy = 046DD4CD2B08195700446D2E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		046DD4D42B08195700446D2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		046DD4D52B08195700446D2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		046DD4D72B08195700446D2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Logthemis/Logthemis.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Logthemis/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.markus-paulsen.Logthemis";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		046DD4D82B08195700446D2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Logthemis/Logthemis.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Logthemis/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.markus-paulsen.Logthemis";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		046DD4DA2B08195700446D2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.markus-paulsen.LogthemisTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Logthemis.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Logthemis";
+			};
+			name = Debug;
+		};
+		046DD4DB2B08195700446D2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.markus-paulsen.LogthemisTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Logthemis.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Logthemis";
+			};
+			name = Release;
+		};
+		046DD4DD2B08195700446D2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.markus-paulsen.LogthemisUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = Logthemis;
+			};
+			name = Debug;
+		};
+		046DD4DE2B08195700446D2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.markus-paulsen.LogthemisUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = Logthemis;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		046DD4AA2B08195500446D2E /* Build configuration list for PBXProject "Logthemis" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				046DD4D42B08195700446D2E /* Debug */,
+				046DD4D52B08195700446D2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		046DD4D62B08195700446D2E /* Build configuration list for PBXNativeTarget "Logthemis" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				046DD4D72B08195700446D2E /* Debug */,
+				046DD4D82B08195700446D2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		046DD4D92B08195700446D2E /* Build configuration list for PBXNativeTarget "LogthemisTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				046DD4DA2B08195700446D2E /* Debug */,
+				046DD4DB2B08195700446D2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		046DD4DC2B08195700446D2E /* Build configuration list for PBXNativeTarget "LogthemisUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				046DD4DD2B08195700446D2E /* Debug */,
+				046DD4DE2B08195700446D2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		040D210C2B09765E0008EAEE /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/ActivityIndicatorView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.1;
+			};
+		};
+		0416C6BD2B08C03A00D4CF4F /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		040D210D2B09765E0008EAEE /* ActivityIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 040D210C2B09765E0008EAEE /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */;
+			productName = ActivityIndicatorView;
+		};
+		0416C6BE2B08C03A00D4CF4F /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0416C6BD2B08C03A00D4CF4F /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 046DD4A72B08195500446D2E /* Project object */;
+}
