@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		040D210E2B09765E0008EAEE /* ActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 040D210D2B09765E0008EAEE /* ActivityIndicatorView */; };
+		040D21112B09D94E0008EAEE /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 040D21102B09D94E0008EAEE /* MarkdownUI */; };
+		040D21132B09F3B60008EAEE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D21122B09F3B60008EAEE /* Constants.swift */; };
 		0416C6BF2B08C03A00D4CF4F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0416C6BE2B08C03A00D4CF4F /* Alamofire */; };
 		0416C6FB2B0907B900D4CF4F /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0416C6FA2B0907B900D4CF4F /* MessageModel.swift */; };
 		0416C6FE2B09080000D4CF4F /* MessageRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0416C6FD2B09080000D4CF4F /* MessageRowView.swift */; };
@@ -41,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		040D21122B09F3B60008EAEE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0416C6FA2B0907B900D4CF4F /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		0416C6FD2B09080000D4CF4F /* MessageRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRowView.swift; sourceTree = "<group>"; };
 		0416C7002B09089F00D4CF4F /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
@@ -64,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				040D21112B09D94E0008EAEE /* MarkdownUI in Frameworks */,
 				040D210E2B09765E0008EAEE /* ActivityIndicatorView in Frameworks */,
 				0416C6BF2B08C03A00D4CF4F /* Alamofire in Frameworks */,
 			);
@@ -143,6 +147,7 @@
 				046DD4B82B08195700446D2E /* Assets.xcassets */,
 				046DD4BD2B08195700446D2E /* Logthemis.entitlements */,
 				046DD4BA2B08195700446D2E /* Preview Content */,
+				040D21122B09F3B60008EAEE /* Constants.swift */,
 			);
 			path = Logthemis;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 			packageProductDependencies = (
 				0416C6BE2B08C03A00D4CF4F /* Alamofire */,
 				040D210D2B09765E0008EAEE /* ActivityIndicatorView */,
+				040D21102B09D94E0008EAEE /* MarkdownUI */,
 			);
 			productName = Logthemis;
 			productReference = 046DD4AF2B08195500446D2E /* Logthemis.app */;
@@ -267,6 +273,7 @@
 			packageReferences = (
 				0416C6BD2B08C03A00D4CF4F /* XCRemoteSwiftPackageReference "Alamofire" */,
 				040D210C2B09765E0008EAEE /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */,
+				040D210F2B09D94E0008EAEE /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
 			);
 			productRefGroup = 046DD4B02B08195500446D2E /* Products */;
 			projectDirPath = "";
@@ -317,6 +324,7 @@
 				0416C7092B09619500D4CF4F /* iOSCustomSegmentedControlSwiftUI.swift in Sources */,
 				0416C7012B09089F00D4CF4F /* ChatViewModel.swift in Sources */,
 				0416C6FE2B09080000D4CF4F /* MessageRowView.swift in Sources */,
+				040D21132B09F3B60008EAEE /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,6 +649,14 @@
 				minimumVersion = 1.1.1;
 			};
 		};
+		040D210F2B09D94E0008EAEE /* XCRemoteSwiftPackageReference "swift-markdown-ui" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gonzalezreal/swift-markdown-ui";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
 		0416C6BD2B08C03A00D4CF4F /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -656,6 +672,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 040D210C2B09765E0008EAEE /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */;
 			productName = ActivityIndicatorView;
+		};
+		040D21102B09D94E0008EAEE /* MarkdownUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 040D210F2B09D94E0008EAEE /* XCRemoteSwiftPackageReference "swift-markdown-ui" */;
+			productName = MarkdownUI;
 		};
 		0416C6BE2B08C03A00D4CF4F /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

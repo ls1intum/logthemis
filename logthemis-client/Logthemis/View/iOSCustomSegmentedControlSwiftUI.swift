@@ -18,19 +18,19 @@ struct BackgroundGeometryReader: View {
     var body: some View {
         GeometryReader { geometry in
             return Color
-                    .clear
-                    .preference(key: SizePreferenceKey.self, value: geometry.size)
+                .clear
+                .preference(key: SizePreferenceKey.self, value: geometry.size)
         }
     }
 }
 struct SizeAwareViewModifier: ViewModifier {
-
+    
     @Binding private var viewSize: CGSize
-
+    
     init(viewSize: Binding<CGSize>) {
         self._viewSize = viewSize
     }
-
+    
     func body(content: Content) -> some View {
         content
             .background(BackgroundGeometryReader())
@@ -39,12 +39,12 @@ struct SizeAwareViewModifier: ViewModifier {
 }
 
 struct SegmentedPicker: View {
-    private static let ActiveSegmentColor: Color = Color(.green.opacity(0.0))
+    private static let ActiveSegmentColor: Color = Color(Constants.homeColor.opacity(0.0))
     private static let BackgroundColor: Color = Color(.black.opacity(0.0))
     private static let ShadowColor: Color = Color.black.opacity(0.2)
-    private static let TextColor: Color = Color(.green)
-    private static let SelectedTextColor: Color = Color(.green)
-
+    private static let TextColor: Color = Color(Constants.homeColor)
+    private static let SelectedTextColor: Color = Color(Constants.homeColor)
+    
     private static let TextFont: Font = .system(size: 12)
     
     private static let SegmentCornerRadius: CGFloat = 12
@@ -64,14 +64,14 @@ struct SegmentedPicker: View {
         let isInitialized: Bool = segmentSize != .zero
         if !isInitialized { return EmptyView().eraseToAnyView() }
         return
-            RoundedRectangle(cornerRadius: SegmentedPicker.SegmentCornerRadius)
+        RoundedRectangle(cornerRadius: SegmentedPicker.SegmentCornerRadius)
             .strokeBorder(.green)
-                .foregroundColor(SegmentedPicker.ActiveSegmentColor)
-                .shadow(color: SegmentedPicker.ShadowColor, radius: SegmentedPicker.ShadowRadius)
-                .frame(width: self.segmentSize.width, height: self.segmentSize.height)
-                .offset(x: self.computeActiveSegmentHorizontalOffset(), y: 0)
-                .animation(Animation.linear(duration: SegmentedPicker.AnimationDuration))
-                .eraseToAnyView()
+            .foregroundColor(SegmentedPicker.ActiveSegmentColor)
+            .shadow(color: SegmentedPicker.ShadowColor, radius: SegmentedPicker.ShadowRadius)
+            .frame(width: self.segmentSize.width, height: self.segmentSize.height)
+            .offset(x: self.computeActiveSegmentHorizontalOffset(), y: 0)
+            .animation(Animation.linear(duration: SegmentedPicker.AnimationDuration))
+            .eraseToAnyView()
     }
     
     @Binding private var selection: Int
@@ -97,12 +97,12 @@ struct SegmentedPicker: View {
         .background(SegmentedPicker.BackgroundColor)
         .clipShape(RoundedRectangle(cornerRadius: SegmentedPicker.SegmentCornerRadius))
     }
-
+    
     // Helper method to compute the offset based on the selected index
     private func computeActiveSegmentHorizontalOffset() -> CGFloat {
         CGFloat(self.selection) * (self.segmentSize.width + SegmentedPicker.SegmentXPadding / 2)
     }
-
+    
     // Gets text view for the segment
     private func getSegmentView(for index: Int) -> some View {
         guard index < self.items.count else {
@@ -110,19 +110,20 @@ struct SegmentedPicker: View {
         }
         let isSelected = self.selection == index
         return
-            Text(self.items[index])
-                // Dark test for selected segment
-                .foregroundColor(isSelected ? SegmentedPicker.SelectedTextColor: SegmentedPicker.TextColor)
-                .lineLimit(1)
-                .padding(.vertical, SegmentedPicker.SegmentYPadding)
-                .padding(.horizontal, SegmentedPicker.SegmentXPadding)
-                .frame(minWidth: 0, maxWidth: .infinity)
-                // Watch for the size of the
-                .modifier(SizeAwareViewModifier(viewSize: self.$segmentSize))
-                .onTapGesture { self.onItemTap(index: index) }
-                .eraseToAnyView()
+        Text(self.items[index])
+            .font(.custom("Courier New", size: 15 * CGFloat(Constants.scaling)))
+        // Dark test for selected segment
+            .foregroundColor(isSelected ? SegmentedPicker.SelectedTextColor: SegmentedPicker.TextColor)
+            .lineLimit(1)
+            .padding(.vertical, SegmentedPicker.SegmentYPadding)
+            .padding(.horizontal, SegmentedPicker.SegmentXPadding)
+            .frame(minWidth: 0, maxWidth: .infinity)
+        // Watch for the size of the
+            .modifier(SizeAwareViewModifier(viewSize: self.$segmentSize))
+            .onTapGesture { self.onItemTap(index: index) }
+            .eraseToAnyView()
     }
-
+    
     // On tap to change the selection
     private func onItemTap(index: Int) {
         guard index < self.items.count else {

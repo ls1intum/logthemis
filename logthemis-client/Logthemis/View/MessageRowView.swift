@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MarkdownUI
 
 struct MessageRowView: View {
     let message: String
@@ -24,14 +25,20 @@ struct MessageRowView: View {
             VStack {
                 Text(getCurrentDate())
                     .foregroundColor(Color.gray)
-                    .font(.custom("Courier New", size: 10))
-                Text(message)
+                    .font(.custom("Courier New", size: 10 * CGFloat(Constants.scaling)))
+                Markdown(message)
+                    .markdownTextStyle() {
+                        FontFamily(.custom("Courier New"))
+                        FontFamilyVariant(.monospaced)
+                        FontSize(15 * CGFloat(Constants.scaling))
+                        ForegroundColor(isError ? .red : (isRequest ? Constants.homeColor : Constants.awayColor))
+                    }
                     .padding()
-                    .foregroundColor(isError ? .red : (isRequest ? .green : .blue))
-                    .font(.custom("Courier New", size: 15))
+                    .foregroundColor(isError ? .red : (isRequest ? Constants.homeColor : Constants.awayColor))
+                    .font(.custom("Courier New", size: 15 * CGFloat(Constants.scaling)))
                     .background(
                         RoundedRectangle(cornerRadius: 8.0)
-                            .stroke(isError ? .red : (isRequest ? .green : .blue), lineWidth: 2)
+                            .stroke(isError ? .red : (isRequest ? Constants.homeColor : Constants.awayColor), lineWidth: 2 * CGFloat(Constants.scaling))
                     )
                     .clipShape(RoundedRectangle(cornerRadius: 8.0))
                     .listRowSeparator(.hidden)
@@ -39,7 +46,7 @@ struct MessageRowView: View {
                         Image(systemName: "arrowtriangle.down")
                             .rotationEffect(isRequest ? .degrees(325.0) : .degrees(45.0))
                             .offset(x: isRequest ? 6.7 : -6.7, y: 6.7)
-                            .foregroundColor(isError ? .red : (isRequest ? .green : .blue))
+                            .foregroundColor(isError ? .red : (isRequest ? Constants.homeColor : Constants.awayColor))
                     }
             }.frame(maxWidth: .infinity, alignment: isRequest ? .trailing : .leading).padding()
             Spacer()
@@ -49,5 +56,5 @@ struct MessageRowView: View {
 }
 
 #Preview {
-    MessageRowView(message: "Test", isRequest: false, isError: true)
+    MessageRowView(message: "Hello", isRequest: false, isError: true)
 }

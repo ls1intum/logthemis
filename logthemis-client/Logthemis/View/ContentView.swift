@@ -48,9 +48,9 @@ struct ContentView: View {
                     VStack {
                         Text("Stephan is typing")
                             .foregroundColor(Color.gray)
-                            .font(.custom("Courier New", size: 10))
+                            .font(.custom("Courier New", size: 10 * CGFloat(Constants.scaling)))
                         ActivityIndicatorView(isVisible: $generating, type:
-                                .scalingDots(count: 3, inset: 2)).foregroundColor(.blue)
+                                .scalingDots(count: 3, inset: 2)).foregroundColor(.cyan)
                             .frame(width: 50.0, height: 50.0)
                     }.frame(maxWidth: .infinity, alignment: .leading)
                 }
@@ -64,7 +64,7 @@ struct ContentView: View {
                             newString = ""
                         }) {
                             Image(systemName: "trash")
-                                .font(.title)
+                                .font(.largeTitle)
                                 .foregroundColor(.red)
                         }
                         .buttonStyle(PlainButtonStyle())
@@ -74,21 +74,23 @@ struct ContentView: View {
                             newString = ""
                             
                         })
-                        .textFieldStyle(.roundedBorder)
-                        .font(.custom("Courier New", size: 20))
+                        .padding(.all, 10)
+                        .frame(minHeight: 25 * CGFloat(Constants.scaling))
+                        .textFieldStyle(.plain)
+                        .font(.custom("Courier New", size: 15 * CGFloat(Constants.scaling)))
                         .foregroundColor(.green)
                         .background(Color.clear)
                         .background(
-                            RoundedRectangle(cornerRadius: 8) // Set the corner radius
-                                .stroke(Color.green, lineWidth: 1) // Set the border color and width
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color.green, lineWidth: 1 * CGFloat( Constants.scaling))
                         )
-                        .padding(.all, 5)
+                        //.padding(.all, 5)
                         Button(action: {
                             chat.addRequest(message: newString, sessionID: sessionID, logFile: getLogFileSelection(self.logFileSelectionIndex), generating: $generating)
                             newString = ""
                         }) {
                             Image(systemName: "paperplane")
-                                .font(.title)
+                                .font(.largeTitle)
                                 .foregroundColor(.green)
                         }
                         .buttonStyle(PlainButtonStyle())
