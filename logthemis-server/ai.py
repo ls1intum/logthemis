@@ -110,15 +110,15 @@ class AI:
             if os.path.exists(f"./data/db/{file}/chroma.sqlite3"):
                 self.stores[file] = Chroma(collection_name=file, persist_directory=f"./data/db/{file}", embedding_function=self.embeddings)
             else:
-                self.stores[file] = self.create_vector_db(f"./data/logs/{file}", file)
+                self.stores[file] = self.create_vector_db(file)
 
             self.log_files[file] = open(f"./data/logs/{file}.log", "r").read().split('\n')
 
         self.message_histories = {}
 
-    def create_vector_db(self, logfile, collection_name):
-        print("Creating DB for " + logfile + " ...")
-        loader = TextLoader(logfile)
+    def create_vector_db(self, file):
+        print(f"Creating DB for {file} ...")
+        loader = TextLoader(f"./data/logs/{file}.log")
         docs = loader.load()
         text_splitter = RecursiveCharacterTextSplitter(
             chunk_size=500,
@@ -131,8 +131,8 @@ class AI:
             texts,
             self.embeddings,
             ids=[f"{item.metadata['source']}--{index}" for index, item in enumerate(texts)],
-            collection_name=collection_name,
-            persist_directory=f"./data/db/{logfile}"
+            collection_name=file,
+            persist_directory=f"./data/db/{file}"
         )
         store.persist()
         return store
