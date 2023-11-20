@@ -27,10 +27,10 @@ services:
     expose:
       - "5000"
     restart: always
+    environment:
+      PYTHONUNBUFFERED: 1
+    env_file:
+      - "./config/logthemis.env"
     volumes:
-      - "./data/logs/test1.log:/app/data/logs/test1.log"
-      - "./data/logs/test2.log:/app/data/logs/test2.log"
-      - "./data/logs/test3.log:/app/data/logs/test3.log"
-      - "./db_log1:/app/db_log1"
-      - "./db_log2:/app/db_log2"
-      - "./db_log3:/app/db_log3"
+      - "./data/logs:/app/data/logs:ro"
+      - "./data/db:/app/data/db"

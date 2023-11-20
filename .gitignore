@@ -1,2 +1,6 @@
 .DS_Store
+logthemis-server/data/db
+.idea
+logthemis-server/config/logthemis.env
+
 

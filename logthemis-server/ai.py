@@ -5,11 +5,22 @@ from langchain.document_loaders import TextLoader
 import requests
 import os
 
-openai_api_key = ""
+openai_api_key = os.getenv("OPENAI_API_KEY")
 
 decision_system_prompt1 = """
     You are a log analyzer specialist.
     Your job is to assist the user with understanding large log files.
+    The application to search the logs uses these technologies:
+      - Java
+      - Spring Boot
+      - Hibernate
+      - MySQL or PostgreSQL
+      - Hazelcast
+      - Nginx
+      - Some: ActiveMQ Artemis
+      - Some: JHipster Registry
+      - Some: Multiple nodes
+    The application is called "Artemis".
     For this you have search access to the log file.
     To search a log file you need to provide a string which is then used for a similarity search.
     You should now decide if you need to search the log file or not.
@@ -23,26 +34,27 @@ decision_system_prompt2 = """
 gen_example_system_prompt = """
     You are a log analyzer specialist.
     Your job is to assist the user with understanding large log files.
+    The application to search the logs uses these technologies:
+      - Java
+      - Spring Boot
+      - Hibernate
+      - MySQL or PostgreSQL
+      - Hazelcast
+      - Nginx
+      - Some: ActiveMQ Artemis
+      - Some: JHipster Registry
+      - Some: Multiple nodes
+    The application is called "Artemis".
     For this you have search access to the log file.
     To search a log file you need to provide a string which is then used for a similarity search.
     You can provide multiple string for the similarity search.
     Each search string needs to be on its own line.
-    Each search string should be an excerpt from an actual Linux trace log.
+    Each search string should be an excerpt from an actual docker-compose with Spring Boot, Nginx application log.
     These are a couple example files from such a log file:
-    > Nov 09 13:11:45 CMX50070-101776 kernel: CMX_IOCTL_GET_SLOT_ID call
-    > Nov 09 13:11:45 CMX50070-101776 avahi-daemon[379]: New relevant interface docker0.IPv4 for mDNS.
-    > Nov 09 13:11:45 CMX50070-101776 xu_launcher[2941]: ./five_12.bmp
-    > Nov 10 05:49:04 CMX50070-101776 systemd[1]: Stopping The NGINX HTTP and reverse proxy server...
-    > Nov 09 13:11:37 CMX50070-101776 systemd[1]: Listening on Docker Socket for the API.
-    Example start ----
-    User: "Is there a not authorized ssh login try in these login files?"
-    You:\"\"\"
-    hostname sshd[0000]: Failed password for invalid user USERID from 10.0.2.217 port 41888 ssh2
-    hostname sshd[0000]: Connection closed by invalid user USERID 0.0.0.0 port 00000 [preauth]
-    hostname sshd[0000]: Failed none for invalid user b734a2zih
-    hostname sshd[0000]: Invalid user USERID from 10.0.2.217 port 41888
-    \"\"\"
-    ------ Example end
+    > artemis-nginx  | 131.159.89.160 - - [19/Nov/2023:10:01:01 +0000] "GET / HTTP/2.0" 502 1965 "http://131.159.89.74" "Blackbox Exporter/0.23.0" "-"
+    > artemis-activemq-broker  | 2023-11-10 16:23:22,823 INFO  [org.apache.activemq.artemis.integration.bootstrap] AMQ101000: Starting ActiveMQ Artemis Server version 2.31.2
+    > artemis-jhipster-registry  | ^[[2m2023-11-10T16:23:29.108Z^[[0;39m ^[[32m INFO^[[0;39m ^[[35m1^[[0;39m ^[[2m---^[[0;39m ^[[2m[           main]^[[0;39m ^[[36mcom.netflix.discovery.DiscoveryClient   ^[[0;39m ^[[2m:^[[0;39m Discovery Client initialized at timestamp 1699633409107 with initial instances count: 0
+    > artemis-app-node-1         | ^[[2m2023-11-10 16:24:06.839^[[0;39m ^[[32m INFO^[[0;39m ^[[35m1^[[0;39m ^[[2m---^[[0;39m ^[[2m[           main]^[[0;39m ^[[36ma.s.s.ProgrammingExerciseScheduleService^[[0;39m ^[[2m:^[[0;39m Scheduled 1 programming exercises.
     Example start ----
     User: "Was a NullPointerException thrown?"
     You:\"\"\"
@@ -65,9 +77,20 @@ def answer_system_prompt(final_result):
     return f"""
         You are a log analyzer specialist.
         Your job is to assist the user with understanding large log files.
+        The application to search the logs uses these technologies:
+          - Java
+          - Spring Boot
+          - Hibernate
+          - MySQL or PostgreSQL
+          - Hazelcast
+          - Nginx
+          - Some: ActiveMQ Artemis
+          - Some: JHipster Registry
+          - Some: Multiple nodes
+        The application is called "Artemis".
         The user will ask you a question and we provide you with relevant excerpts from the log.
         You should then respond to the users query using the log excerpts.
-        Unless specifically asked do NOT forward the raw log entries to the user. 
+        Unless specifically asked do NOT forward the raw log entries to the user.
         Instead summarize the log entries with some small and specific excerpts.
         We have selected the following lines to be relevant to the users query:
         ```
@@ -80,28 +103,16 @@ class AI:
     def __init__(self):
         self.embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
         self.stores = {}
-
-        if os.path.exists("./db_log1/chroma.sqlite3"):
-            self.stores["log1"] = Chroma(collection_name="log1", persist_directory="db_log1", embedding_function=self.embeddings)
-        else:
-            self.stores["log1"] = self.create_vector_db("./data/logs/test1.log", "log1")
-
-        if os.path.exists("./db_log2/chroma.sqlite3"):
-            self.stores["log2"] = Chroma(collection_name="log2", persist_directory="db_log2", embedding_function=self.embeddings)
-        else:
-            self.stores["log2"] = self.create_vector_db("./data/logs/test2.log", "log2")
-
-        if os.path.exists("./db_log3/chroma.sqlite3"):
-            self.stores["log3"] = Chroma(collection_name="log3", persist_directory="db_log3", embedding_function=self.embeddings)
-        else:
-            self.stores["log3"] = self.create_vector_db("./data/logs/test3.log", "log3")
-
-        print("All stores created")
-
         self.log_files = {}
-        self.log_files["log1"] = open("./data/logs/test1.log", "r").read().split('\n')
-        self.log_files["log2"] = open("./data/logs/test2.log", "r").read().split('\n')
-        self.log_files["log3"] = open("./data/logs/test3.log", "r").read().split('\n')
+
+        for file in ["TS1", "TS2", "TS3", "TS4", "TS5", "TS6", "TS9"]:
+            print(f"Loading {file}")
+            if os.path.exists(f"./data/db/{file}/chroma.sqlite3"):
+                self.stores[file] = Chroma(collection_name=file, persist_directory=f"./data/db/{file}", embedding_function=self.embeddings)
+            else:
+                self.stores[file] = self.create_vector_db(f"./data/logs/{file}", file)
+
+            self.log_files[file] = open(f"./data/logs/{file}.log", "r").read().split('\n')
 
         self.message_histories = {}
 
@@ -121,15 +132,14 @@ class AI:
             self.embeddings,
             ids=[f"{item.metadata['source']}--{index}" for index, item in enumerate(texts)],
             collection_name=collection_name,
-            persist_directory='db_' + collection_name
+            persist_directory=f"./data/db/{logfile}"
         )
         store.persist()
         return store
 
     def query_openai(self, messages):
         headers = {
-            "Authorization": f"Bearer {openai_api_key}",
-            "OpenAI-Organization": "org-Jxi1EsvgxtuuKkYvRp5uoYSt"
+            "Authorization": f"Bearer {openai_api_key}"
         }
         data = {
             "model": "gpt-4-1106-preview",
