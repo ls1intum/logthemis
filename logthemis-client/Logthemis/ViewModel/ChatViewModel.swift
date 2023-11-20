@@ -28,11 +28,11 @@ class ChatViewModel: ObservableObject {
                     if(response.response?.statusCode == 200) {
                         self.messages.append(MessageModel(message: "\(success)", isRequest: false, isError: false))
                     } else {
-                        self.messages.append(MessageModel(message: "\(success)", isRequest: false, isError: true))
+                        self.messages.append(MessageModel(message: "An error occured during your request. Please try again or contact your favorite sysadmin.", isRequest: false, isError: true))
                     }
                     
-                case .failure(let error):
-                    self.messages.append(MessageModel(message: "\(error)", isRequest: false, isError: true))
+                case .failure(_):
+                    self.messages.append(MessageModel(message: "An error occured conntecting to the server. Please try again or contact your favorite sysadmin.", isRequest: false, isError: true))
                 }
             }
     }
